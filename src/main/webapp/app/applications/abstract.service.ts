@@ -7,7 +7,7 @@ export default abstract class AbstractService extends Vue {
 
   protected generateUri(route: Route, basePath: string, ...paths: string[]): string {
     const controlCenterUri = (SERVER_API_URL !== undefined ? SERVER_API_URL : '') + basePath;
-    const instanceUri = this.GATEWAY_PATH + route.path + basePath;
+    const instanceUri = route.path.includes(this.GATEWAY_PATH) ? route.path + basePath : this.GATEWAY_PATH + route.path + basePath;
 
     return (route?.path?.length > 0 ? instanceUri : controlCenterUri) + paths.join('/');
   }

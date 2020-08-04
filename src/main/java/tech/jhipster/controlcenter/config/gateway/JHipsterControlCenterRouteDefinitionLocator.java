@@ -11,7 +11,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
-import org.springframework.cloud.gateway.discovery.DiscoveryClientRouteDefinitionLocator;
 import org.springframework.cloud.gateway.filter.FilterDefinition;
 import org.springframework.cloud.gateway.filter.factory.RewritePathGatewayFilterFactory;
 import org.springframework.cloud.gateway.handler.predicate.PathRoutePredicateFactory;
@@ -29,7 +28,7 @@ import reactor.core.publisher.Flux;
  * @see org.springframework.cloud.gateway.discovery.DiscoveryClientRouteDefinitionLocator
  */
 public class JHipsterControlCenterRouteDefinitionLocator implements RouteDefinitionLocator {
-    private final Logger log = LoggerFactory.getLogger(DiscoveryClientRouteDefinitionLocator.class);
+    private static final Logger log = LoggerFactory.getLogger(JHipsterControlCenterRouteDefinitionLocator.class);
     public static final String GATEWAY_PATH = "/gateway/";
 
     private final DiscoveryClient discoveryClient;
